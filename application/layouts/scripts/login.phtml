@@ -1,0 +1,45 @@
+<?php echo $this->doctype();
+$version = Zend_Registry::get('_version');
+$name = Zend_Registry::get('_appname'); 
+ ?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title><?php echo $name ?></title>
+  <?php 
+$url=$this->baseUrl();
+echo $this->headLink()->appendStylesheet($url.'/css/bootstrap-4.3.1/dist/css/bootstrap.min.css');
+   echo $this->headScript()->appendFile( $this->baseUrl('script/jquery-3.3.1.js' ));
+   echo $this->headScript()->appendFile( $this->baseUrl('css/bootstrap-4.3.1/dist/js/bootstrap.min.js' ));
+   echo $this->headLink()->appendStylesheet($url.'/css/estilobase.css');
+	
+  ?>
+</head>
+<body>
+<div id="max2" class="container" style="text-align:center;">
+<br>
+<div id="max" class="md-col-6 ">
+<br /><br />
+<div id="header" >
+    <div id="header-logo">
+      <p>  <b><?php echo $name ?></b><br />
+	  <i ><span style="font-size: smaller;color: #2E8B57"> Versão <?php echo $version ?></span></i></p>
+	  </p>
+    </div>
+    
+    </div>
+
+<div id="newBody">
+<div id="content" class="md-col-6 border border-dark rounded">
+Insira seus dados
+<?php echo $this->layout()->content ?>
+</div>
+</div>
+</div>
+<br /><br /><br /><br /><br /><br />
+
+</div>
+<div id="rodape" class="col-md-12 alert alert-secondary">&copy; Defensoria Pública do Estado do RS</div>
+
+</body>
+</html>

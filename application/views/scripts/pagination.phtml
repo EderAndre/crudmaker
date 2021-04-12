@@ -1,0 +1,36 @@
+<?php if ($this->pageCount): ?>
+<div class="paginador">
+<!-- Previous page link -->
+<a  class='btn btn-outline-secondary
+<?php if (isset($this->previous)): ?>
+   ' href="<?php echo $this->url(array('pg' => $this->previous)); ?>"
+        >&lt;&lt; Anterior
+    
+<?php else: ?>
+    disabled'>&lt;&lt; Anterior &nbsp;
+<?php endif; ?>
+</a>&nbsp;
+ 
+<!-- Numbered page links -->
+<?php foreach ($this->pagesInRange as $page): ?>
+    <?php if ($page != $this->current): ?>
+        <a class='btn btn-outline-secondary'href="<?php echo $this->url(array('pg' => $page)); ?>">
+            <?php echo $page; ?>
+        </a> &nbsp;
+    <?php else: ?>
+        <?php echo "<span class='btn btn-success'>".$page."&nbsp;</span>"; ?> 
+    <?php endif; ?>
+<?php endforeach; ?>
+ 
+<!-- Next page link -->
+<a  class='btn btn-outline-secondary
+<?php if (isset($this->next)): ?>
+    ' href="<?php echo $this->url(array('pg' => $this->next)); ?>"
+       > Próximo &gt;&gt;
+   
+<?php else: ?>
+     disabled'>Próximo &gt;&gt;
+<?php endif; ?>
+ </a>
+</div>
+<?php endif; ?>

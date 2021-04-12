@@ -1,0 +1,9 @@
+		
+	$[__FIELD_VAR_NAME__]=new Zend_Form_Element_Multiselect('[__FIELD_NAME__]');
+	$[__FIELD_VAR_NAME__]->setLabel('[__FIELD_LABEL__]');
+        [__FIELD_IS REQUIRED__]$[__FIELD_VAR_NAME__]->setRequired(true);
+	$list_[__FIELD_NAME__]=array('[__FIELD_ARRAY__]');
+  	foreach ($list_[__FIELD_NAME__] as $v) {
+        	$[__FIELD_VAR_NAME__]->addMultiOption($v, $v);
+        }
+/*-----------------------------------------------------------------------*/

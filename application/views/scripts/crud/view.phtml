@@ -1,0 +1,51 @@
+<?php echo ( sizeof( $this->messages ) > 0 ) ? $this->messages[0] : ""; ?>
+
+<h2>Detalhe do Registro</h2>
+<div class="col-md-4">
+<form style="float:left;margin-right:5px;" method='POST' ' action='<?php echo $this->baseUrl('crud/insert'); ?>' title='Adicionar Novo'><button type='submit' class='btn btn-primary'><i class='fa fa-2x fa-plus'> </i></button>
+
+	</form>
+
+	&nbsp;	
+
+<form style="float:left" method='POST' ' action='<?php echo $this->baseUrl('crud/update
+'); ?>' title='Alterar Dados'><input type='hidden' value=<?php echo $this->item['id']; ?> name='id' id='id'/><button type='submit' class='btn btn-primary'><i class='fa fa-2x fa-sync'> </i></button>
+
+	</form>
+
+
+</div>
+<table class='table'>
+<?php unset($this->item['password']);
+$descriptor=array();
+?>
+<?php foreach ($this->item as $k=>$a): ?>
+
+<?php if( $k=='descriptor'): ?>
+
+<?php 	$descriptor=json_decode($a); ?>
+<?php elseif( $k=='role_default'): 
+$profile=new Model_Perfil();
+$profile=$profile->ver1($a);
+
+?>
+<tr><td>Permissão Padrão</td><td><?php echo $profile['nome'] ?></td></tr>
+<?php else: ?>
+<tr><td><?php echo ucfirst($k) ?></td><td><?php echo $a ?></td></tr>
+<?php endif; ?>
+<?php endforeach; ?>
+</table>
+<table class='table'>
+<tr><th colspan="5">Campos Editados pelo CRUD</th></tr>
+<tr><th>Nome Campo</th><th>Tipo</th><th>Requerido</th><th>Listável</th></tr>
+<?php foreach ($descriptor->elements as $kk=>$d): ?>
+<?php 	if($d->editable): ?>
+<tr>
+<td><?php echo $d->name ?></td>
+<td><?php echo $d->type ?></td>
+<td><?php echo $d->required?'Sim':'Não'; ?></td>
+<td><?php echo $d->listable?'Sim':'Não'; ?></td>
+</tr>
+<?php 	endif; ?>
+<?php endforeach; ?>
+</table>

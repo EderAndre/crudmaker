@@ -1,0 +1,72 @@
+<?php
+		$base=$this->baseUrl();
+          $data=new Model_Empresa();
+    	$data= $data->ver1('1');
+$imagem=$data['imagem_inicio'];	
+$nome=$data['nome'];	
+    	   	
+    	
+    	$user= $escola = Zend_Auth::getInstance()->getIdentity()->getSenhaAlterada();
+    	$senhaAlt1=$user;
+    	$url=$this->url(array('controller' => 'cadastro', 'action' => 'alterasenha', 'module' => 'default'), '', true);
+    
+    	if($senhaAlt1==0){
+    		$senhaAlt='<div class="divAviso"><h3><span class="aviso-senha" >Sua senha deve ser alterada para sua segurança</span></h3>
+    		<a href="'.$url.'"><span class="aviso-senha" >Clique aqui para fazê-lo</span></a></div>';}
+    	else{$senhaAlt="";}
+    	
+    	
+  
+    	
+    		
+    		$avisos="<div id='avisos'>".$senhaAlt."</div>";
+    	
+  echo $this->headLink()->appendStylesheet($this->baseUrl('/css/index.css','screen'));  	
+
+?>
+<style>
+.reflection
+{
+	position:relative;
+    -moz-transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+    -ms-transform: scaleY(-1);
+	 background: -moz-linear-gradient(top,  #080808 0%, #080808 40%, #000000 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#080808), color-stop(40%,#080808), color-stop(100%,#000000));
+    background: -webkit-linear-gradient(top,  #080808 0%,#080808 40%,#000000 100%);
+    background: -o-linear-gradient(top,  #080808 0%,#080808 40%,#000000 100%);
+    background: -ms-linear-gradient(top,  #080808 0%,#080808 40%,#000000 100%);
+    background: linear-gradient(to bottom,  #080808 0%,#080808 40%,#000000 100%);
+	top:610px;
+	right:307px;
+	
+	
+}
+</style>
+<div id="welcome">
+<div id="img">
+<img class="imgEsc" src="<?php echo $base.'/src/logo/'.$imagem; ?>"/>
+
+</div>
+    <p>&nbsp;</p>
+	<h2><span class="zf-name" ><?php echo $nome; ?></span> </h2>
+	<p>&nbsp;</p>
+	<h3 class="erroMsg" >Página do administrador </h3>
+	<p class="erroMsg" >Utilize o menu superior</p>
+    <div id="avisos">
+    <br />
+    <?php echo $avisos;  ?>
+    
+</div>
+    <div id="more-information">
+        
+        <p>
+            Opção mais visitada: <br />
+            <a href="<?php echo $this->baseUrl().'/processos'; ?>">Consulta Processos</a> |
+            
+        </p>
+        
+    </div>
+    
+    
+</div>

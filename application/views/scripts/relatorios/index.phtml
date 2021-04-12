@@ -1,0 +1,44 @@
+<h1>Relatórios</h1>
+<h3 class="erroMsg">Gráfico A</h3>
+<?php print_r($this->content); ?>
+   <div id='myDiv'>
+</div>
+ <div id='myPie'>
+</div>
+<script>
+var trace1 = {
+    type: 'bar',
+    x: [1, 2, 3, 4],
+    y: [5, 10, 2, 8],
+    marker: {
+        color: '#E2E2E2',
+        line: {
+            width: 0.3
+        }
+    }
+};
+
+var data = [ trace1 ];
+
+var layout = {
+  title: 'Barras Responsivo!',
+  font: {size: 18}
+};
+
+Plotly.newPlot('myDiv', data, layout, {responsive: true});
+
+var data = [{
+  values: [19, 26, 55],
+  labels: ['Residential', 'Non-Residential', 'Utility'],
+  type: 'pie'
+}];
+
+var layout = {
+  height: 600,
+  width: 800,
+title: 'Pizza Responsivo!',
+};
+
+Plotly.newPlot('myPie', data, layout, {responsive: true});
+</script>
+

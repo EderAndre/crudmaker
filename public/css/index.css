@@ -1,0 +1,62 @@
+div{}
+    a:link,
+    a:visited
+    {
+        color: #0398CA;
+    }
+
+    span.zf-name
+    {
+        color: #91BE3F;
+    }
+    #avisos span.completo
+    {
+        color: #91BE3F;
+        background-image: url(../images/03.png);
+        background-repeat: no-repeat;
+        background-position:right;
+    }
+   span.aviso-senha
+    {
+        color: #FF0000;
+    }
+
+    div#welcome
+    {
+        color: #FFFFFF;
+          background-color:#FFFFFF;
+        background-image: url(../images/bkg_header.jpg);
+         background-repeat: repeat-x;
+       /* width:  600px;*/
+        height: Autopx;
+        border: 2px solid #444444;
+      
+        text-align: center;
+    }
+    div.divAviso
+    {
+        
+        border: 2px dashed #444444;
+        background-color:#B4EEB4;
+        text-align: center;
+        margin:2px;
+    }
+
+    div#more-information
+    {
+        background-image: url(../images/bkg_body-bottom.gif);
+        height: 100%;
+    }
+    
+img.imgEsc
+    {
+        
+        height: 300px;
+    	width : auto;
+    	float:left;
+    	border: 1px dashed #444444;
+    }
+    #welcome{
+	clear:both;
+    }
+    #avisos{clear:both;}

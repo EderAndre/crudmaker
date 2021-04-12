@@ -1,0 +1,11 @@
+<?php
+$base=$this->baseUrl('');
+?>
+<h2>Reiniciar Senha</h2>
+<i>Uma nova senha temporária será enviada para seu e-mail</i>
+<?php echo ( sizeof( $this->messages ) > 0 ) ? $this->messages[0] : ""; ?>
+<?php echo $this->form; ?>
+<br>
+<a href='<?php
+echo $base;
+?>'>Voltar para tela de Login</a>

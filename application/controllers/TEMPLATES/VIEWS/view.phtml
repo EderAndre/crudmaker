@@ -1,0 +1,26 @@
+<?php echo ( sizeof( $this->messages ) > 0 ) ? $this->messages[0] : ""; ?>
+
+<h2>[__CONTROLLER_CRUD_LABEL__]</h2>
+<div class="col-md-4">
+<form style="float:left;margin-right:5px;" method='GET' action='<?php echo $this->baseUrl('[__CONTROLLER_CRUD_NAME__]/insert'); ?>' title='Adicionar Novo'><button type='submit' class='btn btn-primary'><i class='fa fa-plus'> </i></button>
+
+	</form>
+
+	&nbsp;	
+
+<form style="float:left" method='POST' ' action='<?php echo $this->baseUrl('[__CONTROLLER_CRUD_NAME__]/update
+'); ?>' title='Alterar Dados'><input type='hidden' value=<?php echo $this->item['[__CRUD_KEY_PARAM__]']; ?> name='[__CRUD_KEY_PARAM__]' id='[__CRUD_KEY_PARAM__]'/><button type='submit' class='btn btn-primary'><i class='fa fa-sync'> </i></button>
+
+	</form>
+
+
+</div>
+<table class='table'>
+<?php $list_names=[__LIST_NAMES_ARRAY__]; ?>
+
+<?php foreach ($this->item as $k=>$a): ?>
+<?php if (in_array($k,$list_names)): ?>
+<tr><td><?php echo ucfirst($k) ?></td><td><?php echo $a ?></td></tr>
+<?php endif; ?>
+<?php endforeach; ?>
+</table>

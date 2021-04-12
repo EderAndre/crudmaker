@@ -1,0 +1,44 @@
+<?php
+		$base=$this->baseUrl();
+         $data=new Model_Empresa();
+    	$data= $data->ver1('1');
+
+				$nome=$data['nome'];	
+    	   	
+    	
+    	$user= Zend_Auth::getInstance()->getIdentity()->getSenhaAlterada();
+    	$senhaAlt1=$user;
+    	$url=$this->url(array('controller' => 'cadastro', 'action' => 'alterasenha', 'module' => 'default'), '', true);
+    
+    	if($senhaAlt1==0){
+    		$senhaAlt='<div class="divAviso"><h3><span class="aviso-senha" >Sua senha deve ser alterada para sua segurança</span></h3>
+    		<a href="'.$url.'"><span class="aviso-senha" >Clique aqui para fazê-lo</span></a></div>';}
+    	else{$senhaAlt="";}
+    	
+    	
+  
+    	
+    		
+    		$avisos="<div id='avisos'>".$senhaAlt."</div>";
+    	
+  echo $this->headLink()->appendStylesheet($this->baseUrl('/css/index.css','screen'));  	
+
+?>
+<div id="welcome">
+	<h2><span class="zf-name" ><?php echo $nome; ?></span> </h2>
+	
+	<?php echo $this->content; 
+		  echo $avisos;  
+	?>
+    
+</div>
+    <div id="more-information">
+        
+        <h4>Opções mais visitadas: </h4>
+            <p>  <a href="<?php echo $this->baseUrl().'/index.php/processos'; ?>">Consulta Processos</a> |
+            
+        </p>
+        
+    </div>
+    
+    

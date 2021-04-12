@@ -1,0 +1,105 @@
+<?php
+    $base=$this->baseUrl();
+          $data=new Model_Empresa();
+    	$data= $data->ver1('1');
+$imagem=$data['imagem_inicio'];	
+$nome=$data['nome'];	
+    	   	
+    	
+    	$user= $escola = Zend_Auth::getInstance()->getIdentity()->getSenhaAlterada();
+    	$senhaAlt1=$user;
+    	$url=$this->url(array('controller' => 'cadastro', 'action' => 'alterasenha', 'module' => 'default'), '', true);
+    
+    	if($senhaAlt1==0){
+    		$senhaAlt='<div class="divAviso"><h3><span class="aviso-senha" >Sua senha deve ser alterada para sua segurança</span></h3>
+    		<a href="'.$url.'"><span class="aviso-senha" >Clique aqui para fazê-lo</span></a></div>';}
+    	else{$senhaAlt="";}
+    	
+    	
+  
+    	
+    		
+    		$avisos="<div id='avisos'>".$senhaAlt."</div>";
+    	
+  echo $this->headLink()->appendStylesheet($this->baseUrl('/css/index.css','screen'));  	
+
+?>
+<style>/* O z-index do div#mask deve ser menor que do div#boxes e do div.window */
+.window{
+    display:none;
+    width:360px;
+    height:360px;
+    position:absolute;
+    left:0;
+    top:0;
+    background:#FFF;
+    z-index:9900;
+    padding:10px;
+    border-radius:10px;
+}
+.exercicios{
+  
+    position:relative;
+    left:0;
+    top:0;
+    padding:0;
+    border-radius:0;
+}
+ 
+#mascara{
+    display:none;
+    position:absolute;
+    left:0;
+    top:0;
+    z-index:9000;
+    background-color:#000;
+}
+ 
+.fechar{display:block; text-align:right;}
+</style>
+
+ 
+<div class="window" id="janela1">
+    <a href="#" class="fechar">X Fechar</a>
+    
+   <div id='content_modal'></div>
+</div>
+ 
+ 
+<!-- mascara para cobrir o site -->  
+<div id="mascara"></div>
+
+<div id="welcome">
+<img class="imgEsc" src="<?php echo $base.'/src/logo/'.$imagem; ?>"/>
+    <p>&nbsp;</p>
+	<h2><span class="zf-name" ><?php echo $nome; ?></span> </h2>
+	<p>&nbsp;</p>
+	<div style="width:230px; float:left;">
+	<div id="container_calendario" style=" display:block;">
+	<?php 
+	
+	$cal=new Aplicacao_Calendario_Calendario();
+	$cal->_constructor();
+	?>
+	
+	</div>
+	
+	</div>
+	
+	
+    <div id="avisos">
+    <br />
+    <?php echo $avisos;  ?>
+    
+</div>
+    <div id="more-information">
+        
+        <p>
+            &nbsp;
+            
+        </p>
+        
+    </div>
+    
+    
+</div>

@@ -1,0 +1,14 @@
+<?php 
+if(( sizeof( $this->messages ) > 0 )):
+foreach($this->messages as $msg){
+echo "<span class='badge badge-warning'>".$msg."</span>&nbsp;"; 
+}
+endif;
+?>
+<h2>Alteração de Crud</h2>
+
+<?php echo $this->form; ?>
+<div  id='CrudInsertSend' class='btn btn-success'>Enviar</div>
+<div id='description' class='col-md-11 border boder-light'>
+</div>
+

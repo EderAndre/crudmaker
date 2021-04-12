@@ -1,0 +1,25 @@
+<?php
+
+class Form_[__CONTROLLER_CRUD_NAME__]Insert extends Zend_Form
+{
+    public function init()
+    {
+        $this->setName('[__CONTROLLER_CRUD_NAME__]Insert');
+
+
+	[__FORM_CONTENT__]	
+	
+	$submit = new Zend_Form_Element_Submit('submit');
+        $submit->setLabel('Enviar')
+               ->setAttrib('id', 'submitbutton');
+
+ 
+        $this->addElements(array(
+				[__ELEMENTS_LIST__]
+				$submit
+				));
+    }
+    
+   
+    
+}

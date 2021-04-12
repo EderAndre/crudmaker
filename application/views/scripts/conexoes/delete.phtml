@@ -1,0 +1,19 @@
+<?php echo ( sizeof( $this->messages ) > 0 ) ? $this->messages[0] : ""; ?>
+
+<h2>Confirma Exclusão do Registro?</h2>
+<div class="col-md-4">
+
+<form style="float:left;margin-right:5px;" method='POST' ' action='<?php echo $this->baseUrl('conexoes/delete
+'); ?>' title='Excluir'><input type='hidden' value='<?php echo $this->item['id']; ?>' name='id' id='id'/><input type='hidden' value='DELETE' name='ConfirmAction' id='id'/><button type='submit' class='btn btn-danger'><i class='fa fa-2x fa-trash'> Sim, confirmo!</i></button>
+
+	</form>
+<a class='btn btn-success' href='<?php echo $this->baseUrl('conexoes
+'); ?>'><i class='fa fa-2x fa-check'> Não, obrigado!</i></a>
+
+</div>
+<table class='table'>
+<?php unset($this->item['password']);?>
+<?php foreach ($this->item as $k=>$a): ?>
+<tr><td><?php echo ucfirst($k) ?></td><td><?php echo $a ?></td></tr>
+<?php endforeach; ?>
+</table>

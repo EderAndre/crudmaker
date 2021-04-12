@@ -1,0 +1,31 @@
+<?php echo ( sizeof( $this->messages ) > 0 ) ? $this->messages[0] : ""; ?>
+<h2>Editar ASSETS</h2>
+
+<?php
+//print_r($this->assets);
+ ?>
+<form method='Post' >
+Javascript:
+<div style='border:1px #CCCCCC solid;'>
+<textarea rows="10" cols='80' id='js' name='js' style='border:1px #ffffff solid;'><?php
+echo $this->assets['js'];
+ ?></textarea></div>
+<script>
+var editor=CodeMirror.fromTextArea(
+document.getElementById('js'),
+{mode:'javascript',lineNumbers:true,theme:'cobalt',styleActiveLine:true,matchBrackets:true});
+</script>
+<br>
+Estilo:
+<div style='border:1px #CCCCCC solid;'>
+<textarea rows="10" cols='80' id='css' name='css' ><?php
+echo $this->assets['css'];
+ ?></textarea></div>
+<script>
+var editor2=CodeMirror.fromTextArea(
+document.getElementById('css'),
+{mode:'css',lineNumbers:true,styleActiveLine:true,lines:true,matchBrackets:true});
+</script>
+<br>
+<input type='submit' Value='Enviar' />
+</form>

@@ -1,0 +1,45 @@
+<?php echo ( sizeof( $this->messages ) > 0 ) ? $this->messages[0] : ""; ?>
+
+<h2></h2>
+<div class="col-md-4">
+	<a  style="float:left;margin-right:10px;" class='btn btn-primary' href='<?php echo $this->baseUrl('/insert'); ?>' title='Adicionar Novo'>
+	<i class='fa fa-2x fa-plus'> </i>
+	</a>
+<form style="float:left" method='POST' ' action='<?php echo $this->baseUrl(''); ?>' title='Pesquisar'>
+	<input type='text' name='searchWord' placeholder='busca'id='searchWord'/>
+	<button type='submit' name='submit' value='Search' class='btn btn-danger'>
+	<i class='fa fa-2x fa-search'> </i></button>
+
+	<a class='btn btn-secondary' href='<?php echo $this->baseUrl(''); ?>' title='Limpar'>
+	<i class='fa fa-2x fa-eraser'> </i>
+	</a>
+</form>
+</div>
+<table class='table'>
+<tr>
+
+<tr>
+<?php echo count($this->items)<1?
+"<br><br><div class='alert alert-info alert-dismissible fade show'>Sem Registros<button type='button' class='close' data-dismiss='alert' aria-label='Close><span aria-hidden='true'>&times;</span></button></div>":
+''; ?>
+<?php foreach ($this->items as $items): ?>
+<tr>
+
+	<td>
+	<div class="col-md-4">
+	<form style="float:left" method='POST' ' action='<?php echo $this->baseUrl('/view/'); ?>' title='Ver Detalhes'>
+	<input type='hidden' value=<?php echo $items['']; ?> name='' id=''/>
+	<button type='submit' class='btn btn-primary'><i class='fa fa-2x fa-eye'> </i></button>
+
+	</form>
+	<form style="float:left" method='POST' ' action='<?php echo $this->baseUrl('/delete/'); ?>' title='Excluir'>
+	<input type='hidden' value=<?php echo $items['']; ?> name='' id=''/>
+	<button type='submit' class='btn btn-danger'><i class='fa fa-2x fa-trash'> </i></button>
+	</form>
+	
+</div>
+</td>
+</tr>
+<?php endforeach; ?>
+</table>
+<?php echo $this->items; ?>

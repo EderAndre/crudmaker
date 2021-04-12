@@ -1,0 +1,15 @@
+<?php 
+if(( sizeof( $this->messages ) > 0 )):
+foreach($this->messages as $msg){
+echo "<span class='badge badge-warning'>".$msg."</span>&nbsp;"; 
+}
+endif;
+?>
+<h2>Inclusão de Registro</h2>
+
+<?php echo $this->form; ?>
+<div  id='CrudInsertSend' class='btn btn-success invisible'>Enviar</div>
+<div  id='alertExistsFeature' class='badge badge-warning invisible'><i class='fa fa-exclamation'></i>&nbsp;Já existe feature com este nome, seja mais criativo</div>
+<div id='description' class='col-md-11 border boder-light'> 
+
+</div>

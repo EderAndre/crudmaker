@@ -1,0 +1,41 @@
+<?php echo $this->doctype();
+$version = Zend_Registry::get('_version'); 
+$name = Zend_Registry::get('_appname');
+?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title><?php echo $name ?> </title>
+  <?php echo $this->headLink()->appendStylesheet($this->baseUrl('/css/global.css','screen'));
+		
+		echo $this->headScript()->appendFile( $this->baseUrl('script/jquery.js' ));
+	
+  ?>
+</head>
+<body>
+<div id="max2">
+<div id="max">
+<br /><br />
+<div id="header" >
+    <div id="header-logo">
+      <p>  <b><?php echo $name ?></b><br />
+	  <i ><span style="font-size: smaller;color: #2E8B57"> Versão <?php echo $version ?></span></i></p>
+	  </p>
+    </div>
+    
+    </div>
+
+<div id="newBody">
+<div id="content">
+<br><br><br><br><br>
+<h1 class='erroMsg'>&nbsp;<br>Aplicativo em manutenção<br>&nbsp;</h1>
+</div>
+</div>
+</div>
+<br /><br /><br /><br /><br /><br />
+
+</div>
+<div id="rodape"><a href="mailto:ederandresoares@hotmail.com" target="_blank">Desenvolvedor</a></div>
+
+</body>
+</html>
